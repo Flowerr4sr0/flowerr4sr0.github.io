@@ -1,0 +1,11 @@
+title {
+  color: black;
+}
+
+.banner {
+  width: 100%;
+  padding:60px 0;
+  text-align: center;
+  background: black;
+  color: white;
+}
