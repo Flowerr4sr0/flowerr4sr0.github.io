@@ -2,7 +2,8 @@ title {
   color: black;
 }
 
-banner {
+banner,
+.under-construction {
   width: 100%;
   padding:60px 0;
   text-align: center;
