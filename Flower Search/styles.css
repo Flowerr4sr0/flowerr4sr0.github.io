@@ -1,0 +1,17 @@
+.search {
+    border-radius: 10px;
+    width: 350px;
+    height: 30px;
+}
+
+button {
+    background-color: yellow;
+    border-radius: 4px;
+    border: none;
+    height: 33px;
+    width: 25px;
+}
+
+button:hover {
+    background-color: rgb(230, 230, 13);
+}
