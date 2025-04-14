@@ -66,7 +66,7 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
     // Display the results
     if (results.length > 0) {
         resultsDiv.innerHTML = '<ul>' + results.map(site => 
-            `<li><a href="${site.url}" target="_blank">${site.name}</a></li>`
+            `<li><a href="${site.url}">${site.name}</a></li>`
         ).join('') + '</ul>';
     } else {
         resultsDiv.innerHTML = 'No matching websites found.';
