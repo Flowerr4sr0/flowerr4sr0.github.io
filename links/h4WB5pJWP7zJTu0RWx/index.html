@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download</title>
+</head>
+<body>
+  <a id="autodownload" href="https://example.com/file.txt" download="file.txt" style="display: none;">Download</a>
+
+  <script>
+    window.onload = function () {
+      const link = document.getElementById("autodownload");
+
+      const supportsDownload = 'download' in document.createElement('a');
+
+      if (supportsDownload) {
+        link.click();
+      } else {
+        window.open(link.href, "_blank");
+      }
+    };
+  </script>
+</body>
+</html>
