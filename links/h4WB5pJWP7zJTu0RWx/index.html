@@ -4,19 +4,11 @@
   <title>Download</title>
 </head>
 <body>
-  <a id="autodownload" href="https://example.com/file.txt" download="file.txt" style="display: none;">Download</a>
+  <a id="autodownload" href="https://floweyt6.github.io/assets/ico/favicon.ico" download></a>
 
   <script>
-    window.onload = function () {
-      const link = document.getElementById("autodownload");
-
-      const supportsDownload = 'download' in document.createElement('a');
-
-      if (supportsDownload) {
-        link.click();
-      } else {
-        window.open(link.href, "_blank");
-      }
+    window.onload = function() {
+      document.getElementById("autodownload").click();
     };
   </script>
 </body>
