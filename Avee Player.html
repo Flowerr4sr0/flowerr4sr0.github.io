@@ -23,7 +23,7 @@
       display: block;
     }
 
-    input[type="file"], input[type="color"], select {
+    input[type="file"], input[type="color"], select, button {
       position: absolute;
       top: 10px;
       z-index: 1;
@@ -32,6 +32,12 @@
     #colorPicker { right: 10px; }
     #audioUpload { left: 10px; }
     #presetSelect { top: 50px; position: absolute; z-index: 1; }
+    #playButton {
+      top: 90px;
+      padding: 5px 10px;
+      font-size: 16px;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -42,6 +48,7 @@
     <option value="line">Line</option>
     <option value="dbmeter">dB Meter</option>
   </select>
+  <button id="playButton">▶️ Play</button>
   <canvas id="visualizer"></canvas>
 
   <script>
@@ -50,7 +57,7 @@
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
-    let audioCtx, analyser, source;
+    let audioCtx, analyser, source, audio;
     let color = document.getElementById('colorPicker').value;
     let preset = 'circle';
 
@@ -66,10 +73,18 @@
       const file = this.files[0];
       if (!file) return;
 
-      const audio = new Audio(URL.createObjectURL(file));
+      if (audio) {
+        audio.pause();
+        audio = null;
+      }
+
+      audio = new Audio(URL.createObjectURL(file));
       audio.crossOrigin = "anonymous";
-      audio.loop = true;
-      audio.play();
+      document.getElementById('playButton').style.display = 'inline-block';
+    });
+
+    document.getElementById('playButton').addEventListener('click', () => {
+      if (!audio) return;
 
       if (!audioCtx) audioCtx = new AudioContext();
       analyser = audioCtx.createAnalyser();
@@ -78,7 +93,9 @@
       analyser.connect(audioCtx.destination);
       analyser.fftSize = 256;
 
+      audio.play();
       draw();
+      document.getElementById('playButton').style.display = 'none';
     });
 
     function draw() {
@@ -144,7 +161,7 @@
       let maxHeight = canvas.height * 0.8;
 
       for (let i = 0; i < numBars; i++) {
-        let val = buffer[i * 2]; // sample every other frequency
+        let val = buffer[i * 2];
         let barHeight = (val / 255) * maxHeight;
 
         let x = i * barSpacing + barSpacing * 0.1;
