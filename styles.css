@@ -20,3 +20,28 @@ a {
     border: none;
     font-size: larger;
 }
+#links button{
+    padding: 5px;
+    border-radius: 12px;
+    text-align: center, right;
+}
+
+img {
+    border-radius: 12px;
+}
+#ghmodal button {
+    padding: 5px;
+    border-radius: 12px;
+    text-align: center, right;
+}
+
+#ghmodal {
+    background-color: grey;
+    border-radius: 12px;
+    padding: 1px;
+}
+
+/* Forces the hidden attribute to actually hide the element */
+[hidden] {
+    display: none !important;
+}
