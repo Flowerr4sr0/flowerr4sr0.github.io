@@ -8,8 +8,11 @@
     <title>Flower_r4sr0</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
-
 <body>
     <nav>
         <a href="/index.html">Flower_r4sr0</a>
@@ -17,15 +20,10 @@
         <a href="/Links/"><button class="buttonnav">Links</button></a>
     </nav>
     <div id="links">
-        <a href="https://"><button red><img src="youtube.png" width="50"> Youtube</button></a><br><br>
-        <button onclick="showGHmodal()"><img src="github.png" width="50">Github</button><br><br>
+        <a href="https://"><button class="ui-button ui-corner-all ui-widget"><i class="fa-brands fa-youtube"></i>Youtube</button></a><br><br>
+        <button id="ghmodopen"><i class="fa-brands fa-github"></i>Github</button><br><br>
     </div>
-    <div id="ghmodal">
-        <p>Github</p>
-        <a href="https://github.com/Flowerr4sr0"><button>Profile</button></a><br><br>
-        <a href="https://github.com/Flowerr4sr0-org"><button>Orginization</button></a><br><br>
-        <button onclick="hideGHmodal()">Close</button>
-    </div>
+   <div id="dialog" title="GitHub"><P>aaa</P></div>
 </body>
-
+<script src="./script.js"></script>
 </html>
